@@ -19,13 +19,29 @@
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
+
+- (void) drawCircleAtPoint:(CGPoint) p withRadius:(CGFloat) radius inContext:(CGContextRef)context
+{
+    // Recupere une connexion sur le contexte
+    UIGraphicsPushContext(context);
+    
+    
+    // Libere la connexion une fois les modifications sur le contexte terminées
+    UIGraphicsPopContext();
+}
+
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
+    // Recupere le contexte graphique
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    // Draw face (circle)
+    
+    // Draw eyes (2 circles)
+    
+    // no nose
+    
+    // Draw the mouth
 }
-*/
 
 @end
