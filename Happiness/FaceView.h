@@ -12,4 +12,6 @@
 
 @property (nonatomic) CGFloat scale;
 
+-(void)pinch:(UIPinchGestureRecognizer *)gesture;
+
 @end

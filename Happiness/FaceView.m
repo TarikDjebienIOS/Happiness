@@ -39,6 +39,14 @@
     }
 }
 
+-(void)pinch:(UIPinchGestureRecognizer *)gesture
+{
+    if(gesture.state == UIGestureRecognizerStateChanged || gesture.state == UIGestureRecognizerStateEnded){
+        self.scale *= gesture.scale;
+        gesture.scale = 1;
+    }
+}
+
 -(void) setUp
 {
     self.contentMode = UIViewContentModeRedraw;
@@ -97,7 +105,7 @@
     if(self.bounds.size.height < self.bounds.size.width) size = self.bounds.size.height / 2;
     
     // le rayon de la face fera 90% de la size
-    size *= DEFAULT_SCALE;
+    size *= self.scale;
     
     // Initialise la largeur des lignes
     CGContextSetLineWidth(context, 5.0);

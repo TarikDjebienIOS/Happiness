@@ -24,6 +24,14 @@
     [self.faceView setNeedsDisplay];
 }
 
+-(void)setFaceView:(FaceView *)faceView
+{
+    _faceView = faceView;
+    
+    // Ajout du Handler lors de l'event agrandir / reduire
+    [self.faceView addGestureRecognizer:[[UIPinchGestureRecognizer alloc] initWithTarget:self.faceView action:@selector(pinch:)]];
+}
+
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
     return YES;
