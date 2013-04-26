@@ -24,4 +24,9 @@
     [self.faceView setNeedsDisplay];
 }
 
+-(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+    return YES;
+}
+
 @end
