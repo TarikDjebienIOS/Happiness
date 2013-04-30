@@ -36,8 +36,20 @@
     // Ajout du Handler lors de l'event agrandir / reduire
     [self.faceView addGestureRecognizer:[[UIPinchGestureRecognizer alloc] initWithTarget:self.faceView action:@selector(pinch:)]];
     
+    // Ajout du Handler lors de l'event du mouvement du doigt vers le Haut / Bas
+    [self.faceView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleHappinessGesture:)]];
+    
     // Ajout du controller en tant que DataSource de la vue
     self.faceView.dataSource = self;                            
+}
+
+-(void) handleHappinessGesture: (UIPanGestureRecognizer *)gesture
+{
+    if(gesture.state == UIGestureRecognizerStateChanged || gesture.state == UIGestureRecognizerStateEnded){
+        CGPoint translation = [gesture translationInView:self.faceView];
+        self.happiness -= translation.y / 2;
+        [gesture setTranslation:CGPointZero inView:self.faceView];
+    }
 }
 
 -(float) smileForFaceView:(FaceView *)sender
