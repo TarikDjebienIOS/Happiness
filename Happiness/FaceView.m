@@ -138,7 +138,10 @@
     CGPoint mouthCP2 = mouthEnd;
     mouthCP2.x -= MOUTH_H * size * 2/3;
     
+    // if dataSource is nill, my smile will be 0, that's Ok, it's fine with result expected
     float smile = [self.dataSource smileForFaceView:self];
+    if (smile < -1) smile = -1;
+    if (smile > 1) smile = 1;
     
     CGFloat smileOffSet = MOUTH_SMILE * size * smile;
     mouthCP1.y += smileOffSet;
