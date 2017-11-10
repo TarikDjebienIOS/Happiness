@@ -23,19 +23,7 @@
 
 @synthesize happiness = _happiness;
 @synthesize faceView = _faceView;
-@synthesize splitViewBarButtonItem = _splitViewBarButtonItem;
 @synthesize toolBar = _toolBar;
-
--(void)setSplitViewBarButtonItem:(UIBarButtonItem *)splitViewBarButtonItem
-{
-    if (_splitViewBarButtonItem != splitViewBarButtonItem) {
-        NSMutableArray *toolBarItems = [self.toolBar.items mutableCopy];
-        if (_splitViewBarButtonItem) [toolBarItems removeObject:_splitViewBarButtonItem];
-        if (splitViewBarButtonItem) [toolBarItems insertObject:splitViewBarButtonItem atIndex:0];
-        self.toolBar.items = toolBarItems;
-        _splitViewBarButtonItem = splitViewBarButtonItem;
-    }
-}
 
 -(void) setHappiness:(int)happiness
 {
